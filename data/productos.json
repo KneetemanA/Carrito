@@ -2,31 +2,31 @@
     {
       "id": "1",
       "name": "Camiseta",
-      "price": 20.0,
+      "price": 45000,
       "image": "img/camiseta.jpg"
     },
     {
       "id": "2",
       "name": "Pantalón",
-      "price": 35.0,
+      "price": 30000,
       "image": "img/pantalon.jpg"
     },
     {
       "id": "3",
       "name": "Botines",
-      "price": 50.0,
+      "price": 150000,
       "image": "img/botines.jpg"
     },
     {
       "id": "4",
       "name": "Gorra",
-      "price": 15.0,
+      "price": 18000,
       "image": "img/gorra.jpg"
     },
     {
       "id": "5",
       "name": "Campera",
-      "price": 60.0,
+      "price": 55000,
       "image": "img/campera.jpg"
     }
   ]

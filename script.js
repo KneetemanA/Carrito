@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const generateQRBtn = document.getElementById('generate-qr');
     const qrCodeContainer = document.getElementById('qrcode');
     const clearCart = document.getElementById('clear-cart')
+    const addToCartBtn = document.querySelectorAll('.addBtn')
 
     let cartData = {};
     let discount = 0;
@@ -39,19 +40,30 @@ document.addEventListener('DOMContentLoaded', async () => {
             <img src="${product.image}" alt="${product.name}" />
             <h3>${product.name}</h3>
             <p>$${product.price.toFixed(2)}</p>
+            <button class="addBtn" data-id="${product.id}">Agregar al carrito</button>
             </div>
         `;
 
         productsContainer.appendChild(productElement);
 
+        //Evento eliminar del carrito
+
         clearCart.addEventListener('click', () =>{
             cartData = {};
             saveCart();
             renderCart();
+            qrCodeContainer.innerHTML = '';
         })
+
 
         // Agregar evento dragstart
         productElement.addEventListener('dragstart', dragStart);
+
+        // btn agregar al carrito
+        const addCartBtn = productElement.querySelector('.addBtn');
+        addCartBtn.addEventListener('click', ()=>{
+            addToCart(product)
+        })
     });
 
     // Cargar carrito desde localStorage
@@ -65,7 +77,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     cart.addEventListener('drop', drop);
 
     function dragStart(e) {
-        const id = e.target.dataset.id;
+        const id = e.target.closest('.product')?.dataset.id;
         if (!id) {
             console.error('El elemento arrastrado no tiene un atributo data-id');
             return;
@@ -153,8 +165,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         discount = 0;
 
         for (let id in cartData) {
-            if (id && cartData[id].quantity >= 2) {
-                discount += cartData[id].price * cartData[id].quantity * 0.5;
+            if (id && cartData[id].quantity >= 3) {
+                discount += cartData[id].price * cartData[id].quantity * 0.05;
             }
         }
 
@@ -211,6 +223,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         return summary;
     }
 
+    new QRCode(qrCodeContainer, {
+        text: generateSummary,
+        width: 256,
+        height: 256,
+        correctLevel: QRCode.CorrectLevel.L
+    })
 
     
 });

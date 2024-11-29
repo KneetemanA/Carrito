@@ -1,48 +1,48 @@
 /* styles.css */
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: rgb(210, 236, 247);
+  font-family: 'Roboto', Arial, sans-serif;
+  background: radial-gradient(circle, rgba(115,218,208,1) 0%, rgba(119,203,85,1) 100%);
   margin: 0;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  color: #333;
 }
 
 h1 {
   text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  
+  gap: 20px;
 }
 
-#products-container .products{
-  width: 40%;
-}
-.products {
+.products, .cart {
   background: #fff;
   padding: 2rem;
-  margin: 5rem;
-  border-radius: 5px;
-  width: 40%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  width: 45%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cart {
-  background: #fff;
-  padding: 2rem;
-  margin: 5rem;
-  border-radius: 5px;
-  width: 40%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.products:hover, .cart:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.products h2{
+.products h2, .cart h2 {
   text-align: center;
+  color: #27ae60;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
 .product {
@@ -50,23 +50,15 @@ h1 {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  cursor: grab;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.product:active {
-  cursor: grabbing;
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.cart {
-  position: relative;
-  padding: 2rem;
-  height: 50%;
-}
-
-.cart h2{
-  text-align: center;
-
-}
 .cart-item {
   display: flex;
   align-items: center;
@@ -84,6 +76,8 @@ h1 {
 .cart-item-details {
   display: flex;
   flex-direction: column;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 #cart-items {
@@ -91,17 +85,22 @@ h1 {
   padding: 0;
   max-height: 300px;
   overflow-y: auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 10px;
 }
 
 #cart-items li {
   display: flex;
   justify-content: space-between;
   padding: 5px 0;
-  border-bottom: 1px solid #ddd;
 }
 
 .totals {
-  margin-top: 10px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
 }
 
 .coupon {
@@ -111,27 +110,63 @@ h1 {
 .coupon input {
   padding: 5px;
   width: 70%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .coupon button {
   padding: 5px 10px;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.coupon button:hover {
+  background: #2980b9;
 }
 
 #generate-qr {
   margin-top: 10px;
   padding: 10px;
-  width: 50%;
-  background: #28a745;
+  width: 100%;
+  background: #27ae60;
   color: #fff;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #generate-qr:hover {
   background: #218838;
+  transform: scale(1.05);
 }
 
 #qrcode {
   margin-top: 20px;
   text-align: center;
+}
+
+button {
+  color: #ffff ;
+  background-color: #2980b9;
+  border: none;
+  border-radius: 5%;
+  padding: 0.5rem;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .products, .cart {
+    width: 100%;
+    margin: 0 auto 20px auto;
+  }
 }
