@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compras Interactivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Tienda Virtual</h1>
+    
+    <div class="container">
+        <!-- Lista de Productos -->
+        <div id="products-container" class="products">
+            <h2>Productos</h2>
+            <div class="cart-item">
+                
+            </div>
+        </div>
+            <!-- Agrega más productos según necesites -->
+        
+        
+        <!-- Carrito de Compras -->
+        <div class="cart" id="cart">
+            <h2>Carrito</h2>
+            <ul id="cart-items"></ul>
+            <div class="totals">
+                <p>Subtotal: $<span id="subtotal">0</span></p>
+                <p>Descuento: -$<span id="discount">0</span></p>
+                <p>Total: $<span id="total">0</span></p>
+            </div>
+            <div class="coupon">
+                <input type="text" id="coupon-code" placeholder="Código de descuento">
+                <button id="apply-coupon">Aplicar</button>
+            </div>
+            <button id="clear-cart">Vaciar carrito</button>
+             <button id="generate-qr">Generar QR</button>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+    </div>
+    <!-- Librería QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
