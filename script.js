@@ -177,15 +177,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Generar código QR
     generateQRBtn.addEventListener('click', () => {
-        qrCodeContainer.innerHTML = ''; // Limpia el contenedor de QR
-        const summary = generateSummary(); // Genera el resumen
+        qrCodeContainer.innerHTML = ''; 
+        const summary = generateSummary(); 
         if (summary) {
             // Aumentar el tamaño y nivel de corrección de errores
             new QRCode(qrCodeContainer, {
                 text: summary,
-                width: 256,    // Aumenta el tamaño del QR
-                height: 256,   // Aumenta el tamaño del QR
-                correctLevel: QRCode.CorrectLevel.M  // Usa un nivel de corrección medio (M)
+                width: 256,    
+                height: 256,   
+                correctLevel: QRCode.CorrectLevel.M  
             });
         } else {
             alert('El carrito está vacío');
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             items.push(`${item.name} x${item.quantity}`);
         }
     
-        summary += items.join(', ');  // Crear una cadena con todos los artículos
+        summary += items.join(', ');
         summary += ` | Subtotal: $${subtotalEl.textContent} | Descuento: -$${discountEl.textContent} | Total: $${totalEl.textContent}`;
     
         return summary;
