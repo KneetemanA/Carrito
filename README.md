@@ -1,13 +1,29 @@
-Carrito interactivo con drag-and-drop, descuentos dinámicos y generación de QR. 
-Ariana Kneeteman. 
-Develop full stack.
+Carrito Interactivo con Drag-and-Drop, Descuentos Dinámicos y Generación de QR
+Descripción del Proyecto
 
-Esta idea surge de buscar innovar un carrito de compras para las tiendas.
+Este proyecto, desarrollado por Ariana Kneeteman, surge como una propuesta innovadora para optimizar la experiencia de compra en tiendas. El objetivo es crear un carrito interactivo que combine usabilidad y funcionalidad avanzada, utilizando tecnologías web modernas.
 
-Se utiliza lenguaje JavaScript, HTML y CSS para los estilos.
-Aplicando eventos como Drag and Drop para generar una interacción con el cliente permitiendo que arraste el producto que desea al carrito.
-La logica esta basada en el localStorage, que me permite que el carrito siga estando como lo arma el cliente apesar de las recargas en la página. 
-También generé algunas logicas para la aplicación de descuentos como descuento por cantidad de productos y descuento por cupón. 
-La generación del QR, se hace con la libreria QRCode.js, en la logica para generar el qr se hace un resumen del pedido en cuanto a la cantidad de productos, subtotal, si se aplica o no descuento y el total, luego se visualiza el QR. Esto permite al cliente que asista o no al local, si el cliente no asiste al local puede ser pedido por el local para un control o el cliente pasarle una imagen del QR a una persona y que la misma vaya a buscar el pedido.
+Funcionalidades Clave:
+
+~ Drag-and-Drop: Los clientes pueden arrastrar productos directamente al carrito, proporcionando una experiencia visual y atractiva.
+
+~ Descuentos Dinámicos:
+    #Por cantidad: Aplicación automática de descuentos basados en el número de productos seleccionados.
+    #Por cupón: Validación de códigos promocionales para descuentos adicionales.
+
+~ Generación de QR: Un resumen del pedido (cantidad de productos, subtotal, descuentos aplicados y total) se transforma en un código QR, facilitando:
+
+~ Retiro rápido: El cliente puede usar el QR para recoger su pedido sin complicaciones.
+~ Pedidos por terceros: El cliente puede enviar el QR a otra persona para que retire el pedido.
+
+
+Tecnologías Utilizadas
+ #JavaScript: Para implementar la lógica de negocio y eventos interactivos.
+ #HTML y CSS: Estructura y diseño responsivo y atractivo de la interfaz de usuario.
+ #LocalStorage: Para mantener el estado del carrito incluso después de recargar la página.
+ #QRCode.js: Librería utilizada para generar el código QR del pedido.
+
+Innovación y Propósito
+Este carrito interactivo no solo mejora la experiencia de compra en línea, sino que también conecta el entorno físico y digital, brindando a las tiendas una herramienta que facilita el control de pedidos y a los clientes una experiencia sencilla y eficiente.
 
 
