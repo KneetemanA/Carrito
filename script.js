@@ -192,19 +192,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         qrCodeContainer.innerHTML = ''; 
         const summary = generateSummary(); 
         if (summary) {
-            // Aumentar el tamaño y nivel de corrección de errores
-            new QRCode(qrCodeContainer, {
-                text: summary,
-                width: 256,    
-                height: 256,   
-                correctLevel: QRCode.CorrectLevel.M  
-            });
+            try {
+                new QRCode(qrCodeContainer, {
+                    text: summary,
+                    width: 256,    
+                    height: 256,   
+                    correctLevel: QRCode.CorrectLevel ? QRCode.CorrectLevel.M : 1
+                });
+            } catch (error) {
+                console.error("Error generando el código QR:", error);
+                alert('Ocurrió un error generando el código QR.');
+            }
         } else {
             alert('El carrito está vacío');
         }
     });
     
-
     function generateSummary() {
         if (Object.keys(cartData).length === 0) return null;
     
@@ -213,7 +216,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     
         for (let id in cartData) {
             const item = cartData[id];
-            // Añadir solo el nombre y cantidad, separando con comas
             items.push(`${item.name} x${item.quantity}`);
         }
     
@@ -222,6 +224,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
         return summary;
     }
+    
 
     new QRCode(qrCodeContainer, {
         text: generateSummary,

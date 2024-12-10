@@ -2,12 +2,13 @@
 
 body {
   font-family: 'Roboto', Arial, sans-serif;
-  background: radial-gradient(circle, rgba(115,218,208,1) 0%, rgba(119,203,85,1) 100%);
+ /* background: radial-gradient(circle, rgba(115,218,208,1) 0%, rgba(119,203,85,1) 100%); */
   margin: 0;
   padding: 20px;
   display: flex;
   flex-direction: column;
   color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -33,18 +34,16 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.products:hover, .cart:hover {
+.products:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .products h2, .cart h2 {
-  text-align: center;
-  color: #27ae60;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 .product {
   border: 1px solid #ddd;
   padding: 10px;
@@ -54,9 +53,30 @@ h1 {
   cursor: pointer;
 }
 
-.product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+.product-added {
+  animation: added 0.4s ease-out;
+}
+
+@keyframes added {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.product:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #f9f9f9, #e6f7ff);
 }
 
 .cart-item {
@@ -81,13 +101,17 @@ h1 {
 }
 
 #cart-items {
-  list-style: none;
-  padding: 0;
-  max-height: 300px;
-  overflow-y: auto;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  margin-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #27ae60 #f0f0f0;
+}
+
+#cart-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+  background: #27ae60;
+  border-radius: 10px;
 }
 
 #cart-items li {
@@ -152,13 +176,23 @@ h1 {
 }
 
 button {
-  color: #ffff ;
-  background-color: #2980b9;
+  color: #ffffff;
+  background-color: #3498db;
   border: none;
-  border-radius: 5%;
-  padding: 0.5rem;
-  margin-top: 5px;
+  border-radius: 5px;
+  padding: 0.7rem 1rem;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.3s ease;
 }
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
 
 @media (max-width: 768px) {
   .container {

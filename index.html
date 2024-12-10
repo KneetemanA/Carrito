@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+Ñ
     <meta charset="UTF-8">
     <title>Carrito de Compras Interactivo</title>
     <link rel="stylesheet" href="styles.css">
@@ -36,12 +38,11 @@
 
             <button id="clear-cart">Vaciar carrito</button>
             <button id="generate-qr">Generar QR</button>
-            <div id="qrcode"></div>
+            <div id="qrcode" style="width: 256px; height: 256px; display: flex; justify-content: center; align-items: center;"></div>
         </div>
     </div>
     </div>
-    <!-- Librería QRCode.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+   
     <script src="script.js"></script>
 </body>
 </html>
