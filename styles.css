@@ -2,14 +2,16 @@
 
 body {
   font-family: 'Roboto', Arial, sans-serif;
- /* background: radial-gradient(circle, rgba(115,218,208,1) 0%, rgba(119,203,85,1) 100%); */
+
   margin: 0;
   padding: 20px;
   display: flex;
   flex-direction: column;
   color: #333;
-  transition: background 0.3s ease, color 0.3s ease;
+  background-color: #f0ece2;
+  transition: 0.3s ease, color 0.3s ease;
 }
+
 
 h1 {
   text-align: center;
